@@ -50,11 +50,14 @@ class Player(Mobile):
 
 
 def main(window):
-    player = Mobile(5,0,'@',window)
+    extent = window.getmaxyx()
+    maxy = extent[0]
+    maxx = extent[1]
+    player = Mobile(maxy//2,maxx//2,'@',window)
     running = True
     while running:
         key = window.getch()
-        window.addstr(10,10,chr(key)) #debug
+        #window.addstr(10,10,chr(key)) <debug>
         if key == 27: #ESC
             running = False
             break

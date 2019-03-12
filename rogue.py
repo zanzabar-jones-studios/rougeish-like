@@ -50,10 +50,9 @@ class Player(Mobile):
 
 
 def main(window):
-    extent = window.getmaxyx()
-    maxy = extent[0]
-    maxx = extent[1]
-    player = Mobile(maxy//2,maxx//2,'@',window)
+    maxy = window.getmaxyx()[0]
+    maxx = window.getmaxyx()[1]
+    player = Mobile(maxy//2, maxx//2, '@', window)
     running = True
     while running:
         key = window.getch()
@@ -63,6 +62,7 @@ def main(window):
             break
         else:
             player.move(key)
+            continue
     return 0
 
 

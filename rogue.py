@@ -57,7 +57,7 @@ def main(window):
     while running:
         key = window.getch()
         #window.addstr(10,10,chr(key)) <debug>
-        if key == 27: #ESC
+        if key == 27: #ESC_key
             running = False
             break
         else:

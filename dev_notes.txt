@@ -4,4 +4,4 @@
 0002 save and load mecahnics, explore possiblity of using a graphs or a tree (JSON)
 0003 load nodes when player enters regions and garbage collect when you leave (leaving takes what's in ram over writes to save file)
 0004 proceduraly generated world map nodes. premade dungeons, premade random encounters. world nodes type dictated by specific peramaters. world created by phases. 1st phase plots 5 random nodes on map, 2nd phase plots more nodes near the 1st set of nodes, and so on and so forth. (think density clouds). nodes have lat and long. 1st node pass, places five nodes at random on world map, 2nd pass adds at least 50 nodes randomly, in close proximity to 1st pass nodes, 3rd pass nodes at least 500 cluster near 1st and 2nd pass nodes. around here create contenent lines. distances dictate terrain or bodies of water. then 4th and 5th pass nodes are most likely islands and achepelgoes as they are not constrained by continental boundaries.
-0005 during player character creation, choosing specific traits spawns character in certain parts of the world
+0005 during player character creation, choosing specific traits spawns character in certain parts of the worldƒ

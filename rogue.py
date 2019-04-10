@@ -8,30 +8,30 @@ Created on Sun Mar 10 17:35:05 2019
 
 import curses as crs
 
-class Entity():
+class MapEntity():
     '''
-    superclass for all entities in the game
-    under construction
+    superclass for all entities that can appear on a map.
+    stores fields for appearance and location, and a method for drawing onto
+    the screen.
     '''
-    pass
-
-class Mobile(Entity):
-    '''
-    superclass for all moving objects
-    appear with spawn coordinates and character
-    provide move method to enable motion
-    provide draw method to redraw self at new position
-    '''
-    def __init__(self, spawn_y, spawn_x, char, window):
+    def __init__(self, window, char, spawn_y, spawn_x):
+        self.window = window
+        self.char = char
         self.y = spawn_y
         self.x = spawn_x
-        self.char = char
-        self.window = window
-        self.draw()
-    
+        
+            
     def draw(self):
         self.window.addstr(self.y, self.x, self.char)
-    
+        
+
+class Mobile(MapEntity):
+    '''
+    subclasses all fields from MapEntity; adds move method to enable motion
+    '''
+    def __init__(self, *args):
+        super().__init__(*args)
+        
     def move(self, direction):
         if direction == crs.KEY_UP:
             self.y -= 1
@@ -42,12 +42,17 @@ class Mobile(Entity):
         elif direction == crs.KEY_LEFT:
             self.x -= 1
         self.draw()
-        
-    
-class Player(Mobile):
-    #TODO subclass this from Mobile when possible
-    pass
 
+
+class Player(Mobile):
+    '''
+    special case of Mobile object; fixed appearance and is_player boolean for
+    future use in collision detection.
+    '''
+    def __init__(self, window):
+        super().__init__(window, '@', 10, 10)
+        self.is_player = True
+        
 
 def main(window):
     maxy = window.getmaxyx()[0]

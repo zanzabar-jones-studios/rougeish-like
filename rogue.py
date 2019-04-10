@@ -53,15 +53,12 @@ class Player(Mobile):
         super().__init__(window, '@', 10, 10)
         self.is_player = True
         
-
+    
 def main(window):
-    maxy = window.getmaxyx()[0]
-    maxx = window.getmaxyx()[1]
-    player = Mobile(maxy//2, maxx//2, '@', window)
+    player = Player(window)
     running = True
     while running:
         key = window.getch()
-        #window.addstr(10,10,chr(key)) <debug>
         if key == 27: #ESC_key
             running = False
             break
